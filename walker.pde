@@ -1,9 +1,10 @@
-Walker w;
+Caminante w; //declaración del objeto, no?
 
 void setup() {
-  size(640, 360);
-  w = new Walker();
+  size(840, 560);
+  w = new Caminante();
   background(255);
+  frameRate(25);
 }
 
 void draw() {
@@ -12,20 +13,22 @@ void draw() {
   w.next_step();
 }
 
-class Walker {
-  int prev_x, prev_y;
+// comienza la "clase"
+
+class Caminante {
+  int prev_x, prev_y; //variables de la clase
   int x, y; 
   
-  Walker() {
+  Caminante() { //función ppal
     prev_x = width/2;
     prev_y = height/2;
-		x = prev_x;
-		y = prev_y;
+                x = prev_x;
+                y = prev_y;
   }
 
   void display() {
-    stroke(random(150));
-    strokeWeight(10);
+    stroke(random(50));
+    strokeWeight(5);
     line(prev_x,prev_y,x,y);
     next_step();
   }
