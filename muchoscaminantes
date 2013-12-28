@@ -1,0 +1,60 @@
+class Walker {
+  
+  float x,y;
+  color c;
+  
+  Walker(color _c){
+    
+    c = _c;
+    
+    x = 0;
+    y = 0;
+    
+  }
+  
+  void display(){
+    
+    stroke(c);
+    point(x,y);
+    
+  }
+  
+  void step(){
+    
+    float stepx = random(-1,2);
+    float stepy = random(-1,2);
+    x+=stepx;
+    y+=stepy;
+    if (x > width) { x=0;}
+    if (y > height) {y=0;}
+    
+  }
+}
+
+
+//// ahora el pg basico
+int cantidad = 20;
+Walker[] W = new Walker[cantidad];
+
+void setup(){
+  
+  size(700,700);
+  background(255);
+  smooth();
+  for (int i = 0; i < cantidad; i++) {
+    
+   W[i] = new Walker(color(random(255)));
+  }
+}
+
+void draw(){
+  for (int i = 0; i < cantidad; i++) {
+  W[i].display();
+  W[i].step();
+  }
+  
+}
+
+
+  
+  
